@@ -101,7 +101,6 @@
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="FilterViewController.xib" />
-    <InterfaceDefinition Include="Resources\iOS_FilterizeViewController.xib" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
