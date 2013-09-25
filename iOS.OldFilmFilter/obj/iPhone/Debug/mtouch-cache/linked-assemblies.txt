@@ -1,0 +1,6 @@
+/Users/dannyc/Projects/GitHub/iOS.OldFilmFilter/iOS.OldFilmFilter/obj/iPhone/Debug/mtouch-cache/Link/monotouch.dll
+/Users/dannyc/Projects/GitHub/iOS.OldFilmFilter/iOS.OldFilmFilter/obj/iPhone/Debug/mtouch-cache/Link/iOSFilterize.exe
+/Users/dannyc/Projects/GitHub/iOS.OldFilmFilter/iOS.OldFilmFilter/obj/iPhone/Debug/mtouch-cache/Link/Xamarin.Mobile.dll
+/Users/dannyc/Projects/GitHub/iOS.OldFilmFilter/iOS.OldFilmFilter/obj/iPhone/Debug/mtouch-cache/Link/System.dll
+/Users/dannyc/Projects/GitHub/iOS.OldFilmFilter/iOS.OldFilmFilter/obj/iPhone/Debug/mtouch-cache/Link/mscorlib.dll
+/Users/dannyc/Projects/GitHub/iOS.OldFilmFilter/iOS.OldFilmFilter/obj/iPhone/Debug/mtouch-cache/Link/System.Core.dll
