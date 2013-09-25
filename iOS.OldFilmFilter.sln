@@ -1,4 +1,4 @@
-
+﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iOS.OldFilmFilter", "iOS.OldFilmFilter\iOS.OldFilmFilter.csproj", "{84CD5BD4-F50D-4BCA-94CA-0BF9B7634D82}"
@@ -27,6 +27,6 @@ Global
 		{84CD5BD4-F50D-4BCA-94CA-0BF9B7634D82}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = iOS.Filterize\iOS.OldFilmFilter.csproj
+		StartupItem = iOS.OldFilmFilter\iOS.OldFilmFilter.csproj
 	EndGlobalSection
 EndGlobal
