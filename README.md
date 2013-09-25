@@ -15,6 +15,10 @@ Instructions
 2. Tap "Apply Old Film".
 3. Optional - Tap "Save Picture" to save image to photo album.
 
+Tutorial
+-------
+http://dannycabrera.github.io/iOS.OldFilmFilter/
+
 Screenshot
 -------
 ![Combined](Screenshots/CombinedScreenshot.png)
