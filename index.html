@@ -32,6 +32,75 @@
 <a name="iosoldfilmfilter" class="anchor" href="#iosoldfilmfilter"><span class="octicon octicon-link"></span></a>iOS.OldFilmFilter</h1>
 
 <p>Xamarin.iOS recipe using Core Image Filters to apply an Old Film effect</p>
+
+<p>This is my sample recipe for the <a href="http://blog.xamarin.com/xamarin-recipe-cook-off/">Xamarin Recipe Cook-Off</a>. This sample will show how to take an image with your device and apply an old film effect. To handle the picture taking code I used the <a href="http://components.xamarin.com/view/xamarin.mobile/">Xamarin.Mobile component</a>.</p>
+
+<h2>
+<a name="how-to-apply-old-film-effect" class="anchor" href="#how-to-apply-old-film-effect"><span class="octicon octicon-link"></span></a>How to apply Old Film Effect</h2>
+
+<p>The process involves applying a Sepia Tone filter, generating random white-specks (colored noise) and blending them together.</p>
+
+<ol>
+<li>
+<p>Apply the Sepia Tone filter to the image:</p>
+
+<pre><code>var sep = new CISepiaTone() 
+{
+Image = ciimage,
+Intensity = 1F
+};
+</code></pre>
+</li>
+<li>
+<p>Create random white-specks. This process involves generating colored noise by calling RandomGenerator() and then processing the noise so that we only get white specks calling ColorMatrix().</p>
+
+<pre><code>public CIImage ColorMatrix()
+{
+var rVector = new CIVector (0F, 0.1F, 0F, 0F); 
+var gVector = new CIVector (0F, 0.1F, 0F, 0F);  
+var bVector = new CIVector (0F, 0.1F, 0F, 0F); 
+var biasVector = new CIVector (0F, 0F, 0F, 0F); 
+
+var colorMatrix = new CIColorMatrix ()
+{
+    Image = RandomGenerator(),
+    RVector = rVector,
+    GVector = gVector,
+    BVector = bVector,
+    BiasVector = biasVector
+};
+
+return colorMatrix.OutputImage;
+}
+</code></pre>
+
+<pre><code>public CIImage RandomGenerator()
+{
+var random = new CIRandomGenerator ();
+return Crop (random);
+}
+</code></pre>
+</li>
+<li>
+<p>Once we have the Sepia Tone and the white-specks images, we blend them using CISourceOverCompositing().</p>
+
+<pre><code>var comp = new CISourceOverCompositing () {
+Image = ColorMatrix(),
+BackgroundImage = sep.OutputImage
+};
+</code></pre>
+</li>
+<li>
+<p>The final step is to render the filters into an image and display a preview on the image view.</p>
+
+<pre><code>var output = comp.OutputImage;
+var context = CIContext.FromOptions(null);
+img.Dispose (); // clear image
+img = UIImage.FromImage (context.CreateCGImage (output, output.Extent));
+imageView.Image = img;
+</code></pre>
+</li>
+</ol>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/dannycabrera">dannycabrera</a></p>
