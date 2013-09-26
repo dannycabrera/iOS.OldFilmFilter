@@ -4,7 +4,9 @@
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="iOSOldFilmFilter" expanded="True" selected="True" />
+          <Node name="iOS.OldFilmFilter" expanded="True">
+            <Node name="FilterViewController.cs" selected="True" />
+          </Node>
         </State>
       </Pad>
     </Pads>
