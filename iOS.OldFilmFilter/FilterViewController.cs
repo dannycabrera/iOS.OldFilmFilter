@@ -13,7 +13,7 @@ namespace iOS.OldFilmFilter
 	public partial class FilterViewController : UIViewController
 	{
 		UIImage img;
-		UIAlertView errorAlert;
+		UIAlertView alert;
 
 		public FilterViewController () : base ("FilterViewController", null)
 		{
@@ -33,11 +33,11 @@ namespace iOS.OldFilmFilter
 		/// </summary>
 		private void ShowTakePictureAlert()
 		{
-			if (this.errorAlert != null)
-				this.errorAlert.Dispose ();
+			if (this.alert != null)
+				this.alert.Dispose ();
 
-			this.errorAlert = new UIAlertView ("Picture needed", "Please take a picture first", new UIAlertViewDelegate (), "OK");
-			this.errorAlert.Show ();
+			this.alert = new UIAlertView ("Picture needed", "Please take a picture first", new UIAlertViewDelegate (), "OK");
+			this.alert.Show ();
 		}
 
 		/// <summary>
@@ -89,7 +89,18 @@ namespace iOS.OldFilmFilter
 				return;
 			}
 
-			img.SaveToPhotosAlbum ((image, NSError) => {});
+			img.SaveToPhotosAlbum ((image, error) => {
+
+				if (this.alert != null)
+					this.alert.Dispose ();
+
+				if (error == null) 
+					this.alert = new UIAlertView ("", "Picture saved successfully.", null, "OK");
+				else
+					this.alert = new UIAlertView ("", "Error saving picture. ", null, "OK");
+
+				this.alert.Show ();
+			});
 		}
 
 		/// <summary>
